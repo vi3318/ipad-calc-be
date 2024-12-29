@@ -13,7 +13,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://ipad-calc-fe.vercel.app","https://ipad-calc-f54fkkc4p-vis-projects-82c0f63d.vercel.app"],    
+    allow_origins=["*"],    
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
