@@ -10,8 +10,9 @@ from constants import SERVER_URL, PORT, ENV
 async def lifespan(app: FastAPI):
     yield
 origins = [
+    "https://ipad-calc-fe.vercel.app"
     "https://ipad-calc-9qjk71gtw-vis-projects-82c0f63d.vercel.app",  # Allow your frontend's URL here
-    "https://ipad-calc-fe.vercel.app",  # If you need to allow more domains, add them
+    "https://ipad-calc-fe.vercel.app/",  # If you need to allow more domains, add them
 ]
 
 app = FastAPI(lifespan=lifespan)
@@ -21,6 +22,8 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"], 
+    
     
 )
 
